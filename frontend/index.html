@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnackShield | Enterprise AI Security Platform</title>
+    <meta name="description" content="AI & Blockchain Powered Fake Product Detection">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="app-shell">
+
+    <!-- ── Sidebar ─────────────────────────────────────────── -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <div class="sidebar-header-text">
+                <div class="sidebar-title">SnackShield</div>
+                <div class="sidebar-sub">Enterprise Security Core</div>
+            </div>
+        </div>
+
+        <ul class="nav-links">
+            <li class="nav-group-label">Intelligence Hub</li>
+            
+            <li class="nav-item">
+                <a href="#" onclick="route('home')" id="nav-home" class="nav-link active">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                    <span class="nav-label">Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" onclick="route('verify')" id="nav-verify" class="nav-link">
+                    <svg viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2"></path><path d="M17 3h2a2 2 0 0 1 2 2v2"></path><path d="M21 17v2a2 2 0 0 1-2 2h-2"></path><path d="M7 21H5a2 2 0 0 1-2-2v-2"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    <span class="nav-label">Verify Product</span>
+                </a>
+            </li>
+            <li class="nav-item auth-only">
+                <a href="#" onclick="route('dashboard')" id="nav-dashboard" class="nav-link">
+                    <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                    <span class="nav-label">Analytics</span>
+                </a>
+            </li>
+            <li class="nav-item auth-only">
+                <a href="#" onclick="route('history')" id="nav-history" class="nav-link">
+                    <svg viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span class="nav-label">Scan History</span>
+                </a>
+            </li>
+            <li class="nav-item auth-only">
+                <a href="#" onclick="route('ai')" id="nav-ai" class="nav-link">
+                    <svg viewBox="0 0 24 24"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5l6.74-6.76z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>
+                    <span class="nav-label">AI Neural Engine</span>
+                </a>
+            </li>
+
+            <li class="nav-group-label auth-only">Operations</li>
+            <li class="nav-item auth-only">
+                <a href="#" onclick="route('companies')" id="nav-companies" class="nav-link">
+                    <svg viewBox="0 0 24 24"><path d="M3 21h18"></path><path d="M3 7v1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7H3"></path><path d="M19 21v-7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v7"></path></svg>
+                    <span class="nav-label">Companies</span>
+                </a>
+            </li>
+            <li class="nav-item auth-only">
+                <a href="#" onclick="route('products')" id="nav-products" class="nav-link">
+                    <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                    <span class="nav-label">Batch Management</span>
+                </a>
+            </li>
+            <li class="nav-item auth-only">
+                <a href="#" onclick="route('distributors')" id="nav-distributors" class="nav-link">
+                    <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <span class="nav-label">Distributor Intel</span>
+                </a>
+            </li>
+            <li class="nav-item auth-only">
+                <a href="#" onclick="route('clusters')" id="nav-clusters" class="nav-link">
+                    <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                    <span class="nav-label">Fraud Clusters</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer">
+            <a href="#" onclick="route('login')" id="nav-login" class="nav-link guest-only">
+                <svg viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
+                <span class="nav-label">Sign In</span>
+            </a>
+            <a href="#" onclick="handleLogout()" class="nav-link logout-link auth-only" id="nav-logout">
+                <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                <span class="nav-label">Logout</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- ── Main ─────────────────────────────────────────────── -->
+    <div class="main-layout">
+        <header class="top-navbar">
+            <div class="navbar-left">
+                <button id="sidebar-toggle" class="navbar-btn" onclick="toggleSidebar()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" fill="none"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+                <div class="page-title" id="page-title">Executive Dashboard</div>
+                <div class="search-container">
+                    <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" fill="none"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <input type="text" id="global-search" placeholder="Search system resources..." onkeyup="handleGlobalSearch(event)">
+                </div>
+            </div>
+            <div class="navbar-right">
+                <div class="system-status">
+                    <div class="status-dot"></div>
+                    <span>SYSTEM SECURE</span>
+                </div>
+                <button class="navbar-btn">
+                    <div class="notification-badge"></div>
+                    <svg width="22" height="22" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                </button>
+                <div class="profile-badge" onclick="handleUserBadgeClick()">
+                    <div class="user-avatar">
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name">Administrator</div>
+                        <div class="user-role">Super User</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="content-area" id="main-content">
+
+            <!-- DASHBOARD VIEW -->
+            <section id="view-home" class="view active">
+                <div class="section-header">
+                    <h1 class="section-title">Network Overview</h1>
+                    <p class="section-sub">Real-time supply chain telemetry and threat analytics</p>
+                </div>
+                
+                <div class="grid-5">
+                    <div class="card kpi-card">
+                        <div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg></div>
+                        <div class="kpi-label">Total Products</div>
+                        <div class="kpi-value" id="stat-total-products">0</div>
+                    </div>
+                    <div class="card kpi-card">
+                        <div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div>
+                        <div class="kpi-label">Total Batches</div>
+                        <div class="kpi-value" id="stat-total-batches">0</div>
+                    </div>
+                    <div class="card kpi-card">
+                        <div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg></div>
+                        <div class="kpi-label">Total QR Scans</div>
+                        <div class="kpi-value" id="stat-total-scans">0</div>
+                    </div>
+                    <div class="card kpi-card">
+                        <div class="kpi-icon" style="color:var(--danger)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></div>
+                        <div class="kpi-label">Fake Detected</div>
+                        <div class="kpi-value" id="stat-fake-detected" style="color:var(--danger)">0</div>
+                    </div>
+                    <div class="card kpi-card">
+                        <div class="kpi-icon" style="color:var(--warning)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg></div>
+                        <div class="kpi-label">Suspicious Alerts</div>
+                        <div class="kpi-value" id="stat-suspicious" style="color:var(--warning)">0</div>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="table-title" style="margin-bottom:1.5rem">Daily Scan Activity</div>
+                        <div class="chart-box"><canvas id="chart-daily-scans"></canvas></div>
+                    </div>
+                    <div class="card">
+                        <div class="table-title" style="margin-bottom:1.5rem">Fake vs Genuine Detection</div>
+                        <div class="chart-box"><canvas id="chart-risk-dist"></canvas></div>
+                    </div>
+                </div>
+
+                <div class="table-wrapper">
+                    <div class="table-header"><h3 class="table-title">Recent Fraud Alerts</h3></div>
+                    <div id="recent-scans-grid">
+                        <div style="padding:4rem;text-align:center;color:var(--text-muted)">Awaiting system telemetry...</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VERIFY VIEW -->
+            <section id="view-verify" class="view">
+                <div class="section-header">
+                    <h1 class="section-title">Product Authentication</h1>
+                    <p class="section-sub">Validate product provenance using AI-powered visual inspection</p>
+                </div>
+                
+                <div class="scanner-card">
+                    <div class="card">
+                        <div class="table-title" style="margin-bottom:1.5rem">Neural Scanner Viewport</div>
+                        <div class="scanner-view">
+                            <div class="scanner-line"></div>
+                            <div class="scanner-target"></div>
+                            <div id="reader" style="width:100%;height:100%"></div>
+                            <div style="position:absolute;bottom:20px;left:50%;transform:translateX(-50%);z-index:30;color:white;text-align:center">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                                <div style="font-size:12px;font-weight:600;margin-top:8px;text-transform:uppercase">Align QR in Grid</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Manual Serial Verification</label>
+                            <input type="text" class="form-input" id="verify-pid-input" placeholder="Enter Product Serial (e.g. SNK-...)">
+                        </div>
+                        
+                        <div class="grid-2" style="margin-bottom:0">
+                            <button class="btn btn-secondary w-full" onclick="document.getElementById('scan-image-input').click()">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                                Upload Image
+                            </button>
+                            <button class="btn btn-primary w-full" onclick="manualVerify()">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                                Run Neural Audit
+                            </button>
+                        </div>
+                        <input type="file" id="scan-image-input" accept="image/*" style="display:none" onchange="previewScanImage(event)">
+                    </div>
+
+                    <div class="card" id="verify-result" style="display:flex;align-items:center;justify-content:center;">
+                        <div style="text-align:center;padding:2rem">
+                            <div style="width:60px;height:60px;background:var(--bg-primary);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px">
+                                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--text-muted)"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                            </div>
+                            <h3 style="color:var(--text-primary);margin-bottom:8px">Awaiting Input</h3>
+                            <p style="color:var(--text-secondary);font-size:14px">Point scanner at QR code or enter product serial to begin cryptographic audit.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ANALYTICS VIEW -->
+            <section id="view-dashboard" class="view">
+                <div class="section-header">
+                    <h1 class="section-title">Security Intelligence</h1>
+                    <p class="section-sub">Cross-reference fraud vectors and regional threat profiles</p>
+                </div>
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="table-title" style="margin-bottom:1.5rem">Regional Fraud Density</div>
+                        <div class="chart-box"><canvas id="chart-analytics-regions"></canvas></div>
+                    </div>
+                    <div class="card">
+                        <div class="table-title" style="margin-bottom:1.5rem">Top Targets by Brand</div>
+                        <div class="chart-box"><canvas id="chart-analytics-brands"></canvas></div>
+                    </div>
+                </div>
+                <div class="grid-3">
+                    <div class="card skeleton" style="height:200px"></div>
+                    <div class="card skeleton" style="height:200px"></div>
+                    <div class="card skeleton" style="height:200px"></div>
+                </div>
+            </section>
+
+            <!-- SCAN HISTORY VIEW -->
+            <section id="view-history" class="view">
+                <div class="section-header">
+                    <h1 class="section-title">Audit Log</h1>
+                    <p class="section-sub">Immutable transaction history of all network verifications</p>
+                </div>
+                <div class="table-container">
+                    <div class="table-header">
+                        <div class="search-container" style="width:350px">
+                            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" fill="none"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                            <input type="text" id="history-search" placeholder="Filter by product ID or location..." onkeyup="filterHistory()">
+                        </div>
+                        <div style="display:flex;gap:12px">
+                            <select class="form-input" id="history-filter-result" onchange="filterHistory()" style="width:auto">
+                                <option value="">All Results</option>
+                                <option value="Genuine">Genuine</option>
+                                <option value="Suspicious">Suspicious</option>
+                                <option value="High Risk">High Risk</option>
+                            </select>
+                            <button class="btn btn-secondary" onclick="exportHistory()">Export Audit</button>
+                        </div>
+                    </div>
+                    <table class="saas-table data-table">
+                        <thead>
+                            <tr>
+                                <th>Timestamp</th>
+                                <th>Product Identifier</th>
+                                <th>Geo-Location</th>
+                                <th>Risk Score</th>
+                                <th>Verdict</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history-list-body">
+                            <!-- JS Dynamic Content -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- AI NEURAL ENGINE VIEW -->
+            <section id="view-ai" class="view">
+                <div class="section-header">
+                    <h1 class="section-title">AI Neural Engine</h1>
+                    <p class="section-sub">Autonomous threat detection and pattern recognition core</p>
+                </div>
+                <div class="grid-3">
+                    <div class="card">
+                        <div class="kpi-label">Core Stability</div>
+                        <div class="kpi-value" id="stability-score">--%</div>
+                        <div class="risk-meter"><div class="risk-fill" style="width:98%;background:var(--success)"></div></div>
+                        <p style="font-size:12px;color:var(--text-secondary)">Engine operating at peak efficiency.</p>
+                    </div>
+                    <div class="card">
+                        <div class="kpi-label">Active Threats</div>
+                        <div class="kpi-value" id="active-threats">--</div>
+                        <div class="risk-meter"><div class="risk-fill" style="width:15%;background:var(--danger)"></div></div>
+                        <p style="font-size:12px;color:var(--text-secondary)">Isolated patterns under surveillance.</p>
+                    </div>
+                    <div class="card">
+                        <div class="kpi-label">Neural Confidence</div>
+                        <div class="kpi-value">99.2%</div>
+                        <div class="risk-meter"><div class="risk-fill" style="width:99%;background:var(--primary)"></div></div>
+                        <p style="font-size:12px;color:var(--text-secondary)">Model precision across last 10k scans.</p>
+                    </div>
+                </div>
+                <div class="table-title" style="margin:2rem 0 1.5rem">Anomaly Vector Analysis</div>
+                <div id="forecast-container" class="grid-3"></div>
+            </section>
+
+            <!-- COMPANIES VIEW -->
+            <section id="view-companies" class="view">
+                <div class="section-header">
+                    <h1 class="section-title">Network Partners</h1>
+                    <p class="section-sub">Manage authorized manufacturers and entities</p>
+                </div>
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="table-title" style="margin-bottom:1.5rem">Register New Entity</div>
+                        <form onsubmit="addCompany(event)">
+                            <div class="form-group"><label class="form-label">Company Name</label><input type="text" class="form-input" id="comp-name" required></div>
+                            <div class="form-group"><label class="form-label">License Key</label><input type="text" class="form-input" id="comp-license" required></div>
+                            <div class="form-group"><label class="form-label">Facility Code</label><input type="text" class="form-input" id="comp-code" maxlength="5" required></div>
+                            <button class="btn btn-primary w-full" type="submit">Activate Entity</button>
+                        </form>
+                    </div>
+                    <div class="card">
+                        <div class="table-title" style="margin-bottom:1.5rem">Authorized Network</div>
+                        <div id="companies-list" style="display:flex;flex-direction:column;gap:12px"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BATCH MANAGEMENT VIEW -->
+            <section id="view-products" class="view">
+                <div class="section-header">
+                    <h1 class="section-title">Asset Provisioning</h1>
+                    <p class="section-sub">Generate secure batch records and blockchain-anchored QR identities</p>
+                </div>
+                <div class="card" style="margin-bottom:2rem">
+                    <div class="table-title" style="margin-bottom:1.5rem">Provision New Secure Batch</div>
+                    <form onsubmit="addProduct(event)">
+                        <div class="grid-3">
+                            <div class="form-group">
+                                <label class="form-label">Target Entity</label>
+                                <select class="form-input" id="prod-comp-id" required></select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Product Name</label>
+                                <input type="text" class="form-input" id="prod-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Batch ID</label>
+                                <input type="text" class="form-input" id="prod-batch" required>
+                            </div>
+                        </div>
+                        <div class="grid-3">
+                            <div class="form-group"><label class="form-label">MFG Date</label><input type="date" class="form-input" id="prod-mfg" required></div>
+                            <div class="form-group"><label class="form-label">EXP Date</label><input type="date" class="form-input" id="prod-exp" required></div>
+                            <div class="form-group"><label class="form-label">Asset Quantity</label><input type="number" class="form-input" value="1000" required></div>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Generate Cryptographic Batch</button>
+                    </form>
+                </div>
+
+                <div id="qr-result-area" style="display:none;margin-bottom:2rem"></div>
+
+                <div class="table-container">
+                    <div class="table-header"><h3 class="table-title">Batch Ledger</h3></div>
+                    <table class="saas-table data-table">
+                        <thead>
+                            <tr>
+                                <th>Batch Serial</th>
+                                <th>Product Name</th>
+                                <th>Entity</th>
+                                <th>Health Score</th>
+                                <th>Lifecycle</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="prod-list-body"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- DISTRIBUTOR VIEW -->
+            <section id="view-distributors" class="view">
+                <div class="section-header">
+                    <h1 class="section-title">Distributor Intelligence</h1>
+                    <p class="section-sub">Monitoring supply chain nodes for compliance and risk</p>
+                </div>
+                <div class="table-container">
+                    <table class="saas-table data-table">
+                        <thead>
+                            <tr>
+                                <th>Node Identity</th>
+                                <th>Risk Score</th>
+                                <th>Violations</th>
+                                <th>Anomalies</th>
+                            </tr>
+                        </thead>
+                        <tbody id="distributors-body"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- FRAUD CLUSTERS VIEW -->
+            <section id="view-clusters" class="view">
+                <div class="section-header">
+                    <h1 class="section-title">Geospatial Threat Map</h1>
+                    <p class="section-sub">Active fraud clusters and scanning anomaly hotspots</p>
+                </div>
+                <div class="card" style="height:500px;display:flex;align-items:center;justify-content:center;">
+                    <div style="text-align:center">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <h3 style="margin-top:20px">Initializing Neural Map Core...</h3>
+                        <p style="opacity:0.6;font-size:14px;margin-top:8px">Visualizing global scanning vectors</p>
+                    </div>
+                </div>
+                <div class="table-container" style="margin-top:2rem">
+                    <div class="table-header"><h3 class="table-title">Active Fraud Hotspots</h3></div>
+                    <table class="saas-table data-table">
+                        <thead>
+                            <tr>
+                                <th>Cluster Source</th>
+                                <th>Location Context</th>
+                                <th>Audit Density</th>
+                                <th>Threat Priority</th>
+                            </tr>
+                        </thead>
+                        <tbody id="clusters-body"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- LOGIN VIEW -->
+            <section id="view-login" class="view">
+                <div style="max-width:450px;margin:100px auto">
+                    <div class="card" style="padding:40px">
+                        <div style="text-align:center;margin-bottom:30px">
+                            <div class="sidebar-logo" style="margin:0 auto 20px;width:60px;height:60px;font-size:1.8rem">
+                                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                            </div>
+                            <h2 style="font-size:24px">SnackShield Gateway</h2>
+                            <p style="color:var(--text-secondary);font-size:14px;margin-top:8px">Personnel authorization required</p>
+                        </div>
+                        <form onsubmit="handleLogin(event)">
+                            <div class="form-group"><label class="form-label">Operator Identifier</label><input type="text" class="form-input" id="login-username" placeholder="admin_user_01" required></div>
+                            <div class="form-group"><label class="form-label">Passkey</label><input type="password" class="form-input" id="login-password" placeholder="••••••••" required></div>
+                            <button type="submit" class="btn btn-primary w-full">Authenticate & Interconnect</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+</div>
+
+<div class="toast-container" id="toast-container"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+flask
+flask-cors
+flask-sqlalchemy
+web3
+qrcode
+pandas
+numpy
+scikit-learn
+python-dotenv
+mysql-connector-python
+PyJWT
+bcrypt
+segno

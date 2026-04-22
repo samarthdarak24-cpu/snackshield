@@ -1,0 +1,44 @@
+╔═══════════════════════════════════════════════════════════════╗
+║           SNACKSHIELD - TEST ACCOUNTS                         ║
+╠═══════════════════════════════════════════════════════════════╣
+║                                                               ║
+║  🔐 LOGIN URL: http://localhost:5173/login                   ║
+║  📝 REGISTER: http://localhost:5173/register                 ║
+║                                                               ║
+╠═══════════════════════════════════════════════════════════════╣
+║  👑 ADMINISTRATOR                                             ║
+║  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  ║
+║  Email:    admin@snackshield.com                             ║
+║  Password: admin123                                          ║
+║  Access:   Full system management & analytics                ║
+║                                                               ║
+╠═══════════════════════════════════════════════════════════════╣
+║  🏭 MANUFACTURER                                              ║
+║  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  ║
+║  Email:    manufacturer@test.com                             ║
+║  Password: test123                                           ║
+║  Access:   Product creation, batch management, QR codes      ║
+║                                                               ║
+╠═══════════════════════════════════════════════════════════════╣
+║  🚚 DISTRIBUTOR                                               ║
+║  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  ║
+║  Email:    distributor@test.com                              ║
+║  Password: test123                                           ║
+║  Access:   Supply chain tracking, distribution analytics     ║
+║                                                               ║
+╠═══════════════════════════════════════════════════════════════╣
+║  🏪 RETAILER                                                  ║
+║  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  ║
+║  Email:    retailer@test.com                                 ║
+║  Password: test123                                           ║
+║  Access:   Product verification, customer scan monitoring    ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
+
+✅ All accounts are ready to use!
+✅ You can also create new accounts at /register
+✅ All 4 roles are now fully supported
+
+🎨 NEW: Professional purple/teal/orange color scheme
+🔧 FIXED: "User not found" error resolved
+🚀 IMPROVED: Auto-login after registration

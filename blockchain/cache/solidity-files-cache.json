@@ -1,0 +1,116 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "C:\\Users\\darak\\OneDrive\\Desktop\\fake product\\blockchain\\contracts\\SnackShield.sol": {
+      "lastModificationDate": 1776858738672,
+      "contentHash": "09e7c041c21d996d94868385faa38932",
+      "sourceName": "contracts/SnackShield.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "viaIR": true,
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "SnackShield"
+      ]
+    },
+    "C:\\Users\\darak\\OneDrive\\Desktop\\fake product\\blockchain\\contracts\\SnackShieldAccess.sol": {
+      "lastModificationDate": 1776858783605,
+      "contentHash": "578a1e264f30d8aad3dd8fff8f993a0c",
+      "sourceName": "contracts/SnackShieldAccess.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "viaIR": true,
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "SnackShieldAccess"
+      ]
+    },
+    "C:\\Users\\darak\\OneDrive\\Desktop\\fake product\\blockchain\\contracts\\SnackShieldToken.sol": {
+      "lastModificationDate": 1776858785638,
+      "contentHash": "a5356d17af62485914e02fac65d4aa87",
+      "sourceName": "contracts/SnackShieldToken.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "viaIR": true,
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "SnackShieldToken"
+      ]
+    }
+  }
+}
