@@ -1,0 +1,172 @@
+const fs = require('fs');
+const path = require('path');
+
+// Create HTML content for PDF
+const htmlContent = `
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            font-size: 11px;
+            line-height: 1.4;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 20px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        h2 {
+            color: #34495e;
+            font-size: 14px;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+        h3 {
+            color: #555;
+            font-size: 12px;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: 10px;
+        }
+        pre {
+            background-color: #f8f9fa;
+            padding: 8px;
+            border-radius: 4px;
+            border-left: 3px solid #3498db;
+            overflow-x: auto;
+            font-size: 9px;
+            margin: 5px 0;
+        }
+        .section {
+            margin-bottom: 12px;
+        }
+        .info-box {
+            background-color: #e8f4f8;
+            padding: 8px;
+            border-radius: 4px;
+            margin: 8px 0;
+        }
+        ul {
+            margin: 5px 0;
+            padding-left: 20px;
+        }
+        li {
+            margin: 3px 0;
+        }
+        .footer {
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+            font-size: 10px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>🛡️ SnackShield - Project Execution Steps</h1>
+    
+    <div class="info-box">
+        <strong>Project:</strong> Blockchain-Based Fake Product Detection System<br>
+        <strong>Tech Stack:</strong> MERN (MongoDB, Express, React, Node.js) + Ethereum Smart Contracts<br>
+        <strong>Repository:</strong> https://github.com/samarthdarak24-cpu/snackshield<br>
+        <strong>Submission Date:</strong> 16th May 2026
+    </div>
+
+    <div class="section">
+        <h2>📋 Prerequisites</h2>
+        <ul>
+            <li>Node.js (v16+), MongoDB (v5.0+), Git, Hardhat</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>🚀 Quick Start Guide</h2>
+        
+        <h3>1. Clone Repository</h3>
+        <pre>git clone https://github.com/samarthdarak24-cpu/snackshield.git
+cd snackshield</pre>
+
+        <h3>2. Install Dependencies</h3>
+        <pre># Server
+cd snackshield-mern/server && npm install
+
+# Client
+cd ../client && npm install
+
+# Blockchain
+cd ../blockchain && npm install</pre>
+
+        <h3>3. Environment Setup</h3>
+        <strong>Server (.env in snackshield-mern/server/):</strong>
+        <pre>MONGODB_URI=mongodb://localhost:27017/snackshield
+JWT_SECRET=your_jwt_secret_key
+PORT=5000
+BLOCKCHAIN_RPC_URL=http://127.0.0.1:8545</pre>
+
+        <h3>4. Start Services</h3>
+        <pre># Terminal 1: Start MongoDB
+mongod
+
+# Terminal 2: Deploy Smart Contracts
+cd snackshield-mern/blockchain
+npx hardhat node
+# In new terminal: npx hardhat run scripts/deploy.js --network localhost
+
+# Terminal 3: Start Server
+cd snackshield-mern/server && npm run dev
+
+# Terminal 4: Start Client
+cd snackshield-mern/client && npm run dev</pre>
+
+        <h3>5. Access Application</h3>
+        <ul>
+            <li><strong>Frontend:</strong> http://localhost:5173</li>
+            <li><strong>Backend API:</strong> http://localhost:5000</li>
+            <li><strong>Blockchain:</strong> http://localhost:8545</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>👤 Default Test Credentials</h2>
+        <ul>
+            <li><strong>Manufacturer:</strong> manufacturer@test.com / password123</li>
+            <li><strong>Distributor:</strong> distributor@test.com / password123</li>
+            <li><strong>Retailer:</strong> retailer@test.com / password123</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>✨ Key Features</h2>
+        <ul>
+            <li>Product registration with blockchain verification</li>
+            <li>QR code generation and scanning for authenticity</li>
+            <li>Real-time alerts via Socket.IO</li>
+            <li>Role-based access control (Manufacturer, Distributor, Retailer, Customer)</li>
+            <li>Batch management and supply chain tracking</li>
+            <li>AI-powered fake product detection</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <strong>Group Leader:</strong> Samarth Darak | <strong>GitHub:</strong> samarthdarak24-cpu | <strong>Collaborator:</strong> Disha3112
+    </div>
+</body>
+</html>
+`;
+
+// Write HTML file
+fs.writeFileSync('EXECUTION_STEPS.html', htmlContent);
+console.log('✅ HTML file created: EXECUTION_STEPS.html');
+console.log('📄 Please open this file in a browser and print to PDF (Ctrl+P -> Save as PDF)');
+console.log('   Or use an online HTML to PDF converter');
