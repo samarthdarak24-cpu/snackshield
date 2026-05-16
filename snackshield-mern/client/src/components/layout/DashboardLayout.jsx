@@ -1,13 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, Bell, Search, ChevronDown, User, Settings, Bot, Coins } from 'lucide-react';
 import Sidebar from './Sidebar';
+import NotificationPanel from '../NotificationPanel';
 import { getProfile } from '../../services/api';
+import { NotificationContext } from '../../context/NotificationContext';
 
 const DashboardLayout = ({ children, title = 'Dashboard' }) => {
   const [collapsed, setCollapsed] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
+  const [showNotifications, setShowNotifications] = useState(false);
   const [sstBalance, setSstBalance] = useState('0.0');
+  const { unreadCount } = useContext(NotificationContext);
 
   const user = JSON.parse(localStorage.getItem('user') || '{"name":"Admin","role":"Administrator"}');
 
@@ -79,9 +83,21 @@ const DashboardLayout = ({ children, title = 'Dashboard' }) => {
             </div>
 
             {/* Notifications */}
-            <button className="relative w-9 h-9 flex items-center justify-center rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all">
+            <button 
+              onClick={() => setShowNotifications(!showNotifications)}
+              className="relative w-9 h-9 flex items-center justify-center rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all group"
+            >
               <Bell size={18} />
-              <span className="absolute top-2 right-2 w-2 h-2 bg-purple-500 rounded-full border-2 border-white" />
+              {unreadCount > 0 && (
+                <motion.span 
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  className="absolute -top-1 -right-1 min-w-5 h-5 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-full text-[10px] font-bold flex items-center justify-center border-2 border-white shadow-lg"
+                >
+                  {unreadCount > 99 ? '99+' : unreadCount}
+                </motion.span>
+              )}
+              <div className="absolute inset-0 rounded-lg bg-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
             </button>
 
             <div className="h-5 w-px bg-slate-200" />
@@ -140,6 +156,16 @@ const DashboardLayout = ({ children, title = 'Dashboard' }) => {
           </AnimatePresence>
         </div>
       </main>
+
+      {/* Notification Panel */}
+      <AnimatePresence>
+        {showNotifications && (
+          <NotificationPanel 
+            isOpen={showNotifications} 
+            onClose={() => setShowNotifications(false)} 
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 };

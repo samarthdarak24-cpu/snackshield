@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Bell, 
@@ -15,7 +15,9 @@ import {
   TrendingUp
 } from 'lucide-react';
 import DashboardLayout from '../components/layout/DashboardLayout';
+import NotificationTester from '../components/NotificationTester';
 import { getAlerts, markAlertAsRead, resolveAlert } from '../services/api';
+import { NotificationContext } from '../context/NotificationContext';
 
 const Alerts = () => {
   const [alerts, setAlerts] = useState([]);
@@ -23,6 +25,7 @@ const Alerts = () => {
   const [filter, setFilter] = useState('all');
   const [loading, setLoading] = useState(true);
   const [selectedAlert, setSelectedAlert] = useState(null);
+  const { socket } = useContext(NotificationContext);
 
   // Mock data for demonstration
   const mockAlerts = [
@@ -147,8 +150,43 @@ const Alerts = () => {
     fetchAlerts();
     // Poll for new alerts every 10 seconds
     const interval = setInterval(fetchAlerts, 10000);
+
+    // Listen for real-time alerts via Socket.IO
+    if (socket) {
+      socket.on('newAlert', (alert) => {
+        console.log('📨 New alert received in Alerts page:', alert);
+        // Add new alert to the top
+        setAlerts(prev => [alert, ...prev]);
+        setUnreadCount(prev => prev + 1);
+      });
+
+      socket.on('productVerified', (data) => {
+        console.log('✅ Product verified event received:', data);
+        const newAlert = {
+          _id: Date.now().toString(),
+          message: `Product Verified: ${data.productName || 'Unknown Product'}`,
+          type: 'Verified',
+          productName: data.productName || 'Unknown',
+          productId: data.productId || 'N/A',
+          severity: 'Low',
+          details: `Successfully verified from ${data.location || 'Unknown location'}`,
+          timestamp: new Date(),
+          read: false,
+          resolved: false,
+          locations: [data.location || 'Unknown']
+        };
+        setAlerts(prev => [newAlert, ...prev]);
+        setUnreadCount(prev => prev + 1);
+      });
+
+      return () => {
+        socket.off('newAlert');
+        socket.off('productVerified');
+      };
+    }
+
     return () => clearInterval(interval);
-  }, [filter]);
+  }, [filter, socket]);
 
   const fetchAlerts = async () => {
     try {
@@ -285,6 +323,11 @@ const Alerts = () => {
             </div>
           )}
         </div>
+      </div>
+
+      {/* Notification Tester */}
+      <div className="mb-8">
+        <NotificationTester />
       </div>
 
       {/* Filters */}

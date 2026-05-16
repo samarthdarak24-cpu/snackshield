@@ -106,6 +106,10 @@ exports.verifyProduct = async (req, res) => {
       return res.status(400).json({ status: 'Error', message: 'Product ID or QR code is required' });
     }
 
+    // Validate role against allowed enum values for journeyHistory
+    const validRoles = ['Manufacturer', 'Distributor', 'Retailer', 'Customer'];
+    const validatedRole = validRoles.includes(role) ? role : 'Customer';
+
     const product = await Product.findOne({ qrCode: qrCodeValue });
 
     if (!product) {
@@ -118,13 +122,13 @@ exports.verifyProduct = async (req, res) => {
     // Add journey step
     product.journeyHistory = product.journeyHistory || [];
     product.journeyHistory.push({
-      role,
+      role: validatedRole,
       location,
       city: location.split(',')[0]?.trim() || 'Unknown',
       country: location.split(',')[1]?.trim() || 'India',
       status: 'Verified',
       user,
-      notes: `Product verified by ${role}`
+      notes: `Product verified by ${validatedRole}`
     });
 
     // Calculate risk score

@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
+import { NotificationProvider } from './context/NotificationContext';
+import ToastContainer from './components/ToastContainer';
 import ProtectedRoute from './components/ProtectedRoute';
 import LandingPage from './pages/LandingPage';
 import Dashboard from './pages/Dashboard';
@@ -24,7 +26,9 @@ import './index.css';
 function App() {
   return (
     <AuthProvider>
-      <Router>
+      <NotificationProvider>
+        <ToastContainer />
+        <Router>
         <Routes>
           <Route path="/test"      element={<Test />} />
           <Route path="/"          element={<LandingPage />} />
@@ -49,7 +53,8 @@ function App() {
           
           <Route path="*" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
         </Routes>
-      </Router>
+        </Router>
+      </NotificationProvider>
     </AuthProvider>
   );
 }
