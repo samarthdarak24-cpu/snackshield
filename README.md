@@ -1,6 +1,24 @@
-# 🛡️ SnackShield - Blockchain-Based Fake Product Detection System
+# 🛡️ SnackShield - AI-Powered Product Authentication & Anti-Counterfeit Platform
 
-A comprehensive MERN stack application integrated with Ethereum blockchain for detecting and preventing counterfeit products in the supply chain.
+<div align="center">
+
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![Ethereum](https://img.shields.io/badge/Ethereum-3C3C3D?style=for-the-badge&logo=ethereum&logoColor=white)
+![Solidity](https://img.shields.io/badge/Solidity-363636?style=for-the-badge&logo=solidity&logoColor=white)
+
+**Enterprise-grade MERN application with blockchain integration to combat counterfeit products**
+
+[Features](#-features) • [Tech Stack](#-technology-stack) • [Installation](#-installation) • [Usage](#-usage) • [API](#-api-endpoints)
+
+</div>
+
+---
+
+## 📋 Overview
+
+SnackShield is a full-stack, production-ready MERN application that leverages blockchain technology and AI to combat the growing problem of counterfeit products. The platform provides end-to-end supply chain tracking, ensuring product authenticity from manufacturer to consumer through immutable blockchain records and intelligent verification systems.
 
 ## 📋 Table of Contents
 - [Overview](#overview)
@@ -304,6 +322,25 @@ For any queries or issues, please open an issue on GitHub or contact the project
 - Hardhat for Ethereum development environment
 - MongoDB for database solutions
 - React and Vite teams for frontend tools
+
+---
+
+## 👨‍💻 Developer
+
+**Samarth Darak**  
+Computer Engineering Student @ VIT Pune  
+GitHub: [@samarthdarak24-cpu](https://github.com/samarthdarak24-cpu)  
+LinkedIn: [Samarth Darak](https://linkedin.com/in/samarth-darak-27ba93378)
+
+---
+
+<div align="center">
+
+### ⭐ Star this repo if you're fighting against counterfeit products!
+
+**Made with ❤️ for a safer marketplace**
+
+</div>
 
 ---
 
